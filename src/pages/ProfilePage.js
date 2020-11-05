@@ -1,64 +1,86 @@
 import Page from 'components/Page';
 import React from 'react';
 import { Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
-
+import firebase from '../firebase.js';
 const tableTypes = ['', 'bordered', 'striped', 'hover'];
-//Variable for Database Connection
-var StdID = 6000000001;
-var FName = "Mark";
-var LName = "PhpScript";
-var Dep = "Information, Computer, and Communication Technology";
-var Camp = "Bangkadi Campus";
-var Prog = "Computer Engineering Curricullum (20XX)";
-var Minor = "CPE20XX-OptionXX: Game Production Technology";
-var Lv = "Bachelor";
-var DegName = "Bachelor of Engineering (Computer Engineering)";
-var CurName = "Bachelor of Engineering Program in Computer Engineering (International Program)"
-var AdmY = "20XX/1";
-var Status = "Active";
-var AdmT = "WE";
-var Prev = "M.6 / Grade 12";
-var PrevGPA = "3.XX";
-var PrevSch = "SKR";
-var Adv = "Assoc. Prof. Dr.Ekawit Nantajeewarawat";
-var CGPA = 3.59;
-var CreditAtm = 121;
-var CreditAch = 100;
-var test = 1;
-var EngStat = "Pass";
-var tofelscr = 30;
-var ieltsce = 9;
-var tu_get_scr = 800;
-var tu_get_cbt_scr = 120;
-var tofel_pbt_scr = 30;
-var tofel_cbt_scr = 30;
-var tofel_ibt_scr = 30;
-var tofel_institute_scr = 30;
-var gts401_scr = "pass";
-var toeic_scr = 990;
-var FCE_scr = 190 ;
-var CEFR_scr = 220;
-var tu005_scr;
-var tu006_scr;
-var native = "Native";
 
+class StudentProfile extends React.Component{
+  constructor(props) 
+  {
+    super(props);
+    this.state = 
+    {
+      students: []
+    };
 
-const TablePage = () => {
-  
+  };
+
+  componentDidMount() {
+    const studentRef= firebase.database().ref('Students').orderByChild('StdID').equalTo(6000000001);
+    studentRef.once('value', (snapshot) => {
+      console.log(snapshot.key);
+      let students1 = snapshot.val();
+      let newState=[];
+      for (let students in students1){
+          newState.push({
+              StdID: students1[students].StdID,
+              FName: students1[students].FName,
+              LName: students1[students].LName,
+              Dep: students1[students].Dep,
+              Camp: students1[students].Camp,
+              Prog: students1[students].Prog,
+              Minor: students1[students].Minor,
+              Lv: students1[students].Lv,
+              DegName : students1[students].DegName,
+              CurName : students1[students].CurName,
+              AdmY: students1[students].AdmY,
+              Status : students1[students].Status,
+              AdmT : students1[students].AdmT,
+              Prev : students1[students].Prev,
+              PrevGPA : students1[students].PrevGPA,
+              PrevSch : students1[students].PrevSch,
+              Adv : students1[students].Adv,
+              CGPA : students1[students].CGPA,
+              CreditAtm : students1[students].CreditAtm,
+              CreditAch : students1[students].CreditAch,
+              test : students1[students].test,
+              EngStat : students1[students].EngStat,
+              tofelscr : students1[students].toeic_scr,
+              ieltsce : students1[students].ieltsce,
+              tu_get_scr : students1[students].tu_get_scr,
+              tu_get_cbt_scr : students1[students].tu_get_cbt_scr,
+              tofel_pbt_scr : students1[students].tofel_pbt_scr,
+              tofel_cbt_scr : students1[students].tofel_cbt_scr,
+              tofel_ibt_scr : students1[students].tofel_ibt_scr,
+              tofel_institute_scr : students1[students].tofel_institute_scr,
+              gts401_scr : students1[students].gts401_scr,
+              toeic_scr : students1[students].toeic_scr,
+              FCE_scr : students1[students].FCE_scr ,
+              CEFR_scr : students1[students].CEFR_scr,
+              tu005_scr: students1[students].tu005_scr,
+              tu006_scr: students1[students].tu006_scr,
+              native : students1[students].native
+          });
+          this.setState({students: newState});
+          console.log(this.state.students)
+        }
+    });
+  } ;
+
+render() {
   let tableType, tableType2;
   if (CGPA <= 2.00){
     tableType = "table-warning"
-  }else{tableType="table-success"};
+  }else{tableType= "table-success"};
 
   if (EngStat == "Pass")
   {
     tableType2="table-success"
   } else {tableType2="table-warning"}
 
-
   return (
     <Page
-      title="Student Proile"
+      title="Student Profile"
       breadcrumbs={[{ name: 'Profile', active: true }]}
       className="ProfilePage"
     >
@@ -73,9 +95,11 @@ const TablePage = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className="table-info">
+            {this.state.students.map((student) => {
+              return (
+                <tr className="table-info">
                 <th scope="row">Student ID:</th>
-                <td>{StdID}</td>
+                <td>{student.StdID}</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -93,69 +117,145 @@ const TablePage = () => {
                 <td></td>
                 <td></td>
               </tr>
-              <tr className="table-info">
+              )  
+            }) }
+            
+              {this.state.students.map((student) => {
+              return (
+                <tr className="table-info">
                 <th scope="row">Name:</th>
-                <td colspan="100%">{FName} {LName}</td>
+                <td colspan="100%">{student.FName} {student.LName}</td>
               </tr>
-              <tr className="table-info">
+              )  
+            }) }
+             
+             {this.state.students.map((student) => {
+              return (
+                <tr className="table-info">
                 <th scope="row">School:</th>
-                <td colspan="100%">{Dep}</td>
+                <td colspan="100%">{student. Dep}</td>
               </tr>
-              <tr className="table-info">
+              )  
+            }) }
+
+            {this.state.students.map((student) => {
+              return (
+                <tr className="table-info">
                 <th scope="row">Campus:</th>
-                <td colspan="100%">{Camp}</td>
+                <td colspan="100%">{student.Camp}</td>
               </tr>
-              <tr className="table-info">
+              )  
+            }) }    
+
+{this.state.students.map((student) => {
+              return (
+                <tr className="table-info">
                 <th scope="row">Program:</th>
-                <td colspan="100%">{Prog}</td>
+                <td colspan="100%">{student.Prog}</td>
               </tr>
-              <tr className="table-info">
+              )  
+            }) }    
+
+{this.state.students.map((student) => {
+              return (
+                <tr className="table-info">
                 <th scope="row">Minor:</th>
-                <td colspan="100%">{Minor}</td>
+                <td colspan="100%">{student.Minor}</td>
               </tr>
-              <tr className="table-info">
+              )  
+            }) }    
+
+{this.state.students.map((student) => {
+              return (
+                <tr className="table-info">
                 <th scope="row">Level:</th>
-                <td colspan="100%">{Lv}</td>
+                <td colspan="100%">{student.Lv}</td>
               </tr>
-              <tr className="table-info">
+              )  
+            }) }    
+
+{this.state.students.map((student) => {
+              return (
+                <tr className="table-info">
                 <th scope="row">Degree Name:</th>
-                <td colspan="100%">{DegName}</td>
+                <td colspan="100%">{student.DegName}</td>
               </tr>
-              <tr className="table-info">
+              )  
+            }) }    
+
+{this.state.students.map((student) => {
+              return (
+                <tr className="table-info">
                 <th scope="row">Curricullum Name:</th>
-                <td colspan="100%">{CurName}</td>
+                <td colspan="100%">{student.CurName}</td>
               </tr>
-              <tr className="table-info">
+              )  
+            }) }    
+
+{this.state.students.map((student) => {
+              return (
+                <tr className="table-info">
                 <th scope="row">Admission Year:</th>
-                <td colspan="100%">{AdmY}</td>
+                <td colspan="100%">{student.AdmY}</td>
               </tr>
-              <tr className="table-info">
+              )  
+            }) }    
+
+{this.state.students.map((student) => {
+              return (
+                <tr className="table-info">
                 <th scope="row">Student Status:</th>
-                <td colspan="100%">{Status}</td>
+                <td colspan="100%">{student.Status}</td>
               </tr>
-              <tr className="table-info">
+              )  
+            }) }    
+
+
+{this.state.students.map((student) => {
+              return (
+<tr className="table-info">
                 <th scope="row">Admission Type:</th>
-                <td colspan="100%">{AdmT}</td>
+                <td colspan="100%">{student.AdmT}</td>
               </tr>
-              <tr className="table-info">
+              )  
+            }) } 
+
+{this.state.students.map((student) => {
+              return (
+              
+                <tr className="table-info">
                 <th scope="row">Previous Certificate:</th>
-                <td colspan="4">{Prev}</td>
+                <td colspan="4">{student.Prev}</td>
                 <th scope= "row"> Previous GPA: </th>
-                <td colspan="100%">{PrevGPA}</td>
+                <td colspan="100%">{student.PrevGPA}</td>
               </tr>
-              <tr className="table-info">
+              )  
+            }) }    
+
+{this.state.students.map((student) => {
+              return (
+                <tr className="table-info">
                 <th scope="row">Previous School:</th>
-                <td colspan="100%">{PrevSch}</td>
+                <td colspan="100%">{student.PrevSch}</td>
               </tr>
-              <tr className="table-info">
+              )  
+            }) }   
+
+{this.state.students.map((student) => {
+              return (
+                <tr className="table-info">
                 <th scope="row">Academic Advisor:</th>
-                <td colspan="100%">{Adv}</td>
+                <td colspan="100%">{student.Adv}</td>
               </tr>
+              )  
+            }) }   
+
+
 {/* 
               {test === 0 &&
-              <tr className="table-info">
-              <th scope="row">ConditionTest:</th>
-              <td colspan="100%">Test</td>
+              <tr className=table-info>
+              <th scope=row>ConditionTest:</th>
+              <td colspan=100%>Test</td>
             </tr>
                } */}
               
@@ -173,7 +273,7 @@ const TablePage = () => {
             </thead>
             <tbody>
             <tr className="table-light">
-                <td rowSpan="3"><img src="./assets/img/Happy.gif" /> Will Fixed Later</td>
+                <td rowSpan="3"><img src="./assets/img/Happy.gif "/> Will Fixed Later</td>
                 <th scope="row">Credit Attempt:</th>
                 <td>{CreditAtm} </td>
                 <td></td>
@@ -338,6 +438,54 @@ const TablePage = () => {
     </Card>
     </Page>
   );
+
+
+}
+
+  
+
 };
 
-export default TablePage;
+
+
+
+//Variable for Database Connection
+  var StdID = 6000000001;
+  var FName = "Mark";
+  var LName = "PhpScript";
+  var Dep = "Information Computer and Communication Technology";
+  var Camp = "Bangkadi Campus";
+  var Prog = "Computer Engineering Curricullum (20XX)";
+  var Minor = "CPE20XX-OptionXX: Game Production Technology";
+  var Lv = "Bachelor";
+  var DegName = "Bachelor of Engineering (Computer Engineering)";
+  var CurName = "Bachelor of Engineering Program in Computer Engineering (International Program)"
+  var AdmY = "20XX/1";
+  var Status = "Active";
+  var AdmT = "WE";
+  var Prev = "M.6 / Grade 12";
+  var PrevGPA = "3.XX";
+  var PrevSch = "SKR";
+  var Adv = "Assoc. Prof. Dr.Ekawit Nantajeewarawat";
+  var CGPA = 3.59;
+  var CreditAtm = 121;
+  var CreditAch = 100;
+  var test = 1;
+  var EngStat = "Pass";
+  var tofelscr = 30;
+  var ieltsce = 9;
+  var tu_get_scr = 800;
+  var tu_get_cbt_scr = 120;
+  var tofel_pbt_scr = 30;
+  var tofel_cbt_scr = 30;
+  var tofel_ibt_scr = 30;
+  var tofel_institute_scr = 30;
+  var gts401_scr = "pass";
+  var toeic_scr = 990;
+  var FCE_scr = 190 ;
+  var CEFR_scr = 220;
+  var tu005_scr;
+  var tu006_scr;
+  var native = "Native";
+
+export default StudentProfile;
