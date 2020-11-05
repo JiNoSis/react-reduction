@@ -7,6 +7,9 @@ import React from 'react';
 import componentQueries from 'react-component-queries';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import './styles/reduction.scss';
+import firebase from './firebase.js';
+
+
 
 const AlertPage = React.lazy(() => import('pages/AlertPage'));
 const AuthModalPage = React.lazy(() => import('pages/AuthModalPage'));
@@ -38,6 +41,7 @@ const ProfilePage = React.lazy(() => import('pages/ProfilePage'));
 const getBasename = () => {
   return `/${process.env.PUBLIC_URL.split('/').pop()}`;
 };
+
 
 class App extends React.Component {
   render() {
