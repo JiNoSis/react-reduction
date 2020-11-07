@@ -16,7 +16,7 @@ class StudentProfile extends React.Component{
   };
 
   componentDidMount() {
-    const studentRef= firebase.database().ref('Students').orderByChild('StdID').equalTo(6000000001);
+    const studentRef= firebase.database().ref('Students').orderByChild('StdID').equalTo(6000000002);
     studentRef.once('value', (snapshot) => {
       console.log(snapshot.key);
       let students1 = snapshot.val();
@@ -65,18 +65,22 @@ class StudentProfile extends React.Component{
           console.log(this.state.students)
         }
     });
+
+
+
   } ;
 
-render() {
-  let tableType, tableType2;
-  if (CGPA <= 2.00){
-    tableType = "table-warning"
-  }else{tableType= "table-success"};
-
-  if (EngStat == "Pass")
+  MappedData()
   {
-    tableType2="table-success"
-  } else {tableType2="table-warning"}
+    //Will use to optimize data for static webpage
+     
+   };
+
+
+
+
+render() {
+  
 
   return (
     <Page
@@ -84,6 +88,23 @@ render() {
       breadcrumbs={[{ name: 'Profile', active: true }]}
       className="ProfilePage"
     >
+    {this.state.students.map((student) => {
+
+      let SCGPA = student.CGPA;
+      let U_CGPA = SCGPA.replace("_",".");
+
+      let tableType, tableType2;
+      if (U_CGPA <= 2.00){
+        tableType = "table-warning"
+      }else{tableType= "table-success"};
+    
+      if (student.EngStat == "Pass")
+      {
+        tableType2="table-success"
+      } else {tableType2="table-warning"}
+
+
+       return(
     <Card className="mb-3">
         <CardHeader>Profile</CardHeader>
         
@@ -95,8 +116,6 @@ render() {
               </tr>
             </thead>
             <tbody>
-            {this.state.students.map((student) => {
-              return (
                 <tr className="table-info">
                 <th scope="row">Student ID:</th>
                 <td>{student.StdID}</td>
@@ -117,138 +136,102 @@ render() {
                 <td></td>
                 <td></td>
               </tr>
-              )  
-            }) }
-            
-              {this.state.students.map((student) => {
-              return (
+
+
                 <tr className="table-info">
                 <th scope="row">Name:</th>
                 <td colspan="100%">{student.FName} {student.LName}</td>
               </tr>
-              )  
-            }) }
+
              
-             {this.state.students.map((student) => {
-              return (
+            
                 <tr className="table-info">
                 <th scope="row">School:</th>
                 <td colspan="100%">{student. Dep}</td>
               </tr>
-              )  
-            }) }
 
-            {this.state.students.map((student) => {
-              return (
+
+
                 <tr className="table-info">
                 <th scope="row">Campus:</th>
                 <td colspan="100%">{student.Camp}</td>
               </tr>
-              )  
-            }) }    
 
-{this.state.students.map((student) => {
-              return (
+
+
                 <tr className="table-info">
                 <th scope="row">Program:</th>
                 <td colspan="100%">{student.Prog}</td>
               </tr>
-              )  
-            }) }    
+ 
 
-{this.state.students.map((student) => {
-              return (
+
+              
                 <tr className="table-info">
                 <th scope="row">Minor:</th>
                 <td colspan="100%">{student.Minor}</td>
               </tr>
-              )  
-            }) }    
 
-{this.state.students.map((student) => {
-              return (
+
                 <tr className="table-info">
                 <th scope="row">Level:</th>
                 <td colspan="100%">{student.Lv}</td>
               </tr>
-              )  
-            }) }    
 
-{this.state.students.map((student) => {
-              return (
                 <tr className="table-info">
                 <th scope="row">Degree Name:</th>
                 <td colspan="100%">{student.DegName}</td>
               </tr>
-              )  
-            }) }    
+ 
 
-{this.state.students.map((student) => {
-              return (
+
                 <tr className="table-info">
                 <th scope="row">Curricullum Name:</th>
                 <td colspan="100%">{student.CurName}</td>
               </tr>
-              )  
-            }) }    
 
-{this.state.students.map((student) => {
-              return (
+
                 <tr className="table-info">
                 <th scope="row">Admission Year:</th>
                 <td colspan="100%">{student.AdmY}</td>
               </tr>
-              )  
-            }) }    
+ 
 
-{this.state.students.map((student) => {
-              return (
+
                 <tr className="table-info">
                 <th scope="row">Student Status:</th>
                 <td colspan="100%">{student.Status}</td>
               </tr>
-              )  
-            }) }    
+ 
 
 
-{this.state.students.map((student) => {
-              return (
+
 <tr className="table-info">
                 <th scope="row">Admission Type:</th>
                 <td colspan="100%">{student.AdmT}</td>
               </tr>
-              )  
-            }) } 
 
-{this.state.students.map((student) => {
-              return (
+
               
                 <tr className="table-info">
                 <th scope="row">Previous Certificate:</th>
                 <td colspan="4">{student.Prev}</td>
                 <th scope= "row"> Previous GPA: </th>
-                <td colspan="100%">{student.PrevGPA}</td>
+                <td colspan="100%">{student.PrevGPA.replace("_",".")}</td>
               </tr>
-              )  
-            }) }    
 
-{this.state.students.map((student) => {
-              return (
+
                 <tr className="table-info">
                 <th scope="row">Previous School:</th>
                 <td colspan="100%">{student.PrevSch}</td>
               </tr>
-              )  
-            }) }   
 
-{this.state.students.map((student) => {
-              return (
+
                 <tr className="table-info">
                 <th scope="row">Academic Advisor:</th>
-                <td colspan="100%">{student.Adv}</td>
+                <td colspan="100%">{student.Adv.replaceAll("_",".")}</td>
               </tr>
-              )  
-            }) }   
+  
 
 
 {/* 
@@ -263,6 +246,7 @@ render() {
           </Table>
         </Card>
 
+ 
         <Card body>
           <Table {...{ ['default']: true }}>
             <thead>
@@ -273,9 +257,9 @@ render() {
             </thead>
             <tbody>
             <tr className="table-light">
-                <td rowSpan="3"><img src="./assets/img/Happy.gif "/> Will Fixed Later</td>
+                <td rowSpan="3" align="center"><iframe src="https://drive.google.com/file/d/1gPFyM-RbOOYcYMhGHMtNd0pU1cQrfmEE/preview" width="150" height="150"></iframe></td>
                 <th scope="row">Credit Attempt:</th>
-                <td>{CreditAtm} </td>
+                <td>{student.CreditAtm} </td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -283,24 +267,20 @@ render() {
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+
               </tr>
               <tr className="table-light">
               <th scope="row">Credit Achieved:</th>
-              <td colspan="100%">{CreditAch}</td>
+              <td colspan="100%">{student.CreditAch}</td>
               </tr>
               <tr className = {tableType}>
               <th scope="row">GPAX:</th>
-              <td colspan="100%">{CGPA}</td>
+              <td colspan="100%">{U_CGPA}</td>
               </tr>
             </tbody>
           </Table>
         </Card>
+  
 
         <Card body>
           <Table {...{ ['default']: true }}>
@@ -324,108 +304,108 @@ render() {
             <tbody>
               <tr className = {tableType2}>
               <th colspan="2">English Status:</th>
-              <td>{EngStat}</td>
+              <td>{student.EngStat}</td>
               </tr>
 
               { tofelscr != null &&
               <tr>
               <th colspan="2">TOEFEL: </th>
-              <td>{String(tofelscr)}</td>
+              <td>{String(student.tofelscr)}</td>
               </tr>
               }
 
               { ieltsce != null &&
               <tr>
               <th colspan="2">IELTS: </th>
-              <td>{String(ieltsce)}</td>
+              <td>{String(student.ieltsce)}</td>
               </tr>
               }
 
               { tu_get_scr != null &&
               <tr>
               <th colspan="2">TU-GET: </th>
-              <td>{String(tu_get_scr)}</td>
+              <td>{String(student.tu_get_scr)}</td>
               </tr>
               }
 
               { tu_get_cbt_scr != null &&
               <tr>
               <th colspan="2">TU-GET(CBT): </th>
-              <td>{String(tu_get_cbt_scr)}</td>
+              <td>{String(student.tu_get_cbt_scr)}</td>
               </tr>
               }
               { tofel_pbt_scr != null &&
               <tr>
               <th colspan="2">TOEFEL(PBT): </th>
-              <td>{String(tofel_pbt_scr)}</td>
+              <td>{String(student.tofel_pbt_scr)}</td>
               </tr>
               }  
 
               { tofel_cbt_scr != null &&
                 <tr>
                 <th colspan="2">TOEFEL(CBT): </th>
-                <td>{String(tofel_cbt_scr)}</td>
+                <td>{String(student.tofel_cbt_scr)}</td>
                 </tr>
                 }  
                 
               { tofel_ibt_scr != null &&
                 <tr>
                 <th colspan="2">TOEFEL(IBT): </th>
-                <td>{String(tofel_ibt_scr)}</td>
+                <td>{String(student.tofel_ibt_scr)}</td>
                 </tr>
                 }   
 
               { tofel_institute_scr != null &&
                 <tr>
                 <th colspan="2">TOEFEL(Institutional): </th>
-                <td>{String(tofel_institute_scr)}</td>
+                <td>{String(student.tofel_institute_scr)}</td>
                 </tr>
                 }
 
               { gts401_scr != null &&
                 <tr>
                 <th colspan="2">GTS401 Intensive English: </th>
-                <td>{String(gts401_scr)}</td>
+                <td>{String(student.gts401_scr)}</td>
                 </tr>
                 }   
 
               { toeic_scr != null &&
                 <tr>
                 <th colspan="2">TOEIC: </th>
-                <td>{String(toeic_scr)}</td>
+                <td>{String(student.toeic_scr)}</td>
                 </tr>
                 }
 
               { FCE_scr != null &&
                 <tr>
                 <th colspan="2">First Certificate in English(FCE): </th>
-                <td>{String(FCE_scr)}</td>
+                <td>{String(student.FCE_scr)}</td>
                 </tr>
                 }      
               { CEFR_scr != null &&
                 <tr>
                 <th colspan="2">CEFR: </th>
-                <td>{String(CEFR_scr)}</td>
+                <td>{String(student.CEFR_scr)}</td>
                 </tr>
                 } 
                 { tu005_scr != null &&
                 <tr>
                 <th colspan="2">TU005 (for MasterOnly): </th>
-                <td>{String(tu005_scr)}</td>
+                <td>{String(student.tu005_scr)}</td>
                 </tr>
                 } 
 
                 { tu006_scr != null &&
                 <tr>
                 <th colspan="2">TU006 (for MasterOnly): </th>
-                <td>{String(tu006_scr)}</td>
+                <td>{String(student.tu006_scr)}</td>
                 </tr>
                 }     
 
               { native != null &&
                 <tr>
                 <th colspan="2">Native English Speaker: </th>
-                <td>{String(native)}</td>
+                <td>{String(student.native)}</td>
                 </tr>
                 }   
 
@@ -436,6 +416,7 @@ render() {
 
 
     </Card>
+         )})}
     </Page>
   );
 
