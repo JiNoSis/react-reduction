@@ -1,0 +1,37 @@
+[
+    {
+        "course_code":"EL172",
+        "course_name":"English Course III",
+        "course_credit":3
+    },
+    {
+        "course_code":"GTS101",
+        "course_name":"Skills Development for Technical Studies",
+        "course_credit":3
+    },
+    {
+        "course_code":"GTS116",
+        "course_name":"Mathmetics for Technologist I",
+        "course_credit":3
+    },
+    {
+        "course_code":"GTS133",
+        "course_name":"Environmental Studies",
+        "course_credit":3
+    },
+    {
+        "course_code":"ITS100",
+        "course_name":"Introduction to Computers and Programming",
+        "course_credit":3
+    },
+    {
+        "course_code":"MTS252",
+        "course_name":"Material Science",
+        "course_credit":3
+    },
+    {
+        "course_code":"SCS138",
+        "course_name":"Applied Physics I",
+        "course_credit":3
+    }
+]

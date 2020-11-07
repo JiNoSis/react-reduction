@@ -1,0 +1,282 @@
+[
+    {
+        "course_code":"EL172",
+        "course_name":"English Course III",
+        "std_id":"6000000001",
+        "std_grade":"A",
+        "credit_grade":4,
+        "id_sem":"6000000001/1_2020",
+        "course_credit":3,
+        "class_gpa":2.31
+    },
+    {
+        "course_code":"EL172",
+        "course_name":"English Course III",
+        "std_id":"6000000002",
+        "std_grade":"B",
+        "credit_grade":3,
+        "id_sem":"6000000002/1_2020",
+        "course_credit":3,
+        "class_gpa":2.31
+    },
+    {
+        "course_code":"GTS101",
+        "course_name":"Skills Development for Technical Studies",
+        "std_id":"6000000001",
+        "std_grade":"A",
+        "credit_grade":4,
+        "id_sem":"6000000001/1_2020",
+        "course_credit":3,
+        "class_gpa":2.56
+    },
+    {
+        "course_code":"GTS101",
+        "course_name":"Skills Development for Technical Studies",
+        "std_id":"6000000002",
+        "std_grade":"B",
+        "credit_grade":3,
+        "id_sem":"6000000002/1_2020",
+        "course_credit":3,
+        "class_gpa":2.56
+    },
+    {
+        "course_code":"GTS116",
+        "course_name":"Mathmetics for Technologist I",
+        "std_id":"6000000001",
+        "std_grade":"A",
+        "credit_grade":4,
+        "id_sem":"6000000001/1_2020",
+        "course_credit":3,
+        "class_gpa":2.48
+    },
+    {
+        "course_code":"GTS116",
+        "course_name":"Mathmetics for Technologist I",
+        "std_id":"6000000002",
+        "std_grade":"B",
+        "credit_grade":3,
+        "id_sem":"6000000002/1_2020",
+        "course_credit":3,
+        "class_gpa":2.48
+    },
+    {
+        "course_code":"GTS133",
+        "course_name":"Environmental Studies",
+        "std_id":"6000000001",
+        "std_grade":"A",
+        "credit_grade":4,
+        "id_sem":"6000000001/1_2020",
+        "course_credit":3,
+        "class_gpa":2.59
+    },
+    {
+        "course_code":"GTS133",
+        "course_name":"Environmental Studies",
+        "std_id":"6000000002",
+        "std_grade":"B",
+        "credit_grade":3,
+        "id_sem":"6000000002/1_2020",
+        "course_credit":3,
+        "class_gpa":2.59
+    },
+    {
+        "course_code":"ITS100",
+        "course_name":"Introduction to Computers and Programming",
+        "std_id":"6000000001",
+        "std_grade":"A",
+        "credit_grade":4,
+        "id_sem":"6000000001/1_2020",
+        "course_credit":3,
+        "class_gpa":2.81
+    },
+    {
+        "course_code":"ITS100",
+        "course_name":"Introduction to Computers and Programming",
+        "std_id":"6000000002",
+        "std_grade":"B",
+        "credit_grade":3,
+        "id_sem":"6000000002/1_2020",
+        "course_credit":3,
+        "class_gpa":2.81
+    },
+    {
+        "course_code":"MTS252",
+        "course_name":"Material Science",
+        "std_id":"6000000001",
+        "std_grade":"A",
+        "credit_grade":4,
+        "id_sem":"6000000001/1_2020",
+        "course_credit":3,
+        "class_gpa":2.85
+    },
+    {
+        "course_code":"MTS252",
+        "course_name":"Material Science",
+        "std_id":"6000000002",
+        "std_grade":"B",
+        "credit_grade":3,
+        "id_sem":"6000000002/1_2020",
+        "course_credit":3,
+        "class_gpa":2.85
+    },
+    {
+        "course_code":"SCS138",
+        "course_name":"Applied Physics I",
+        "std_id":"6000000001",
+        "std_grade":"A",
+        "credit_grade":4,
+        "id_sem":"6000000001/1_2020",
+        "course_credit":3,
+        "class_gpa":1.93
+    },
+    {
+        "course_code":"SCS138",
+        "course_name":"Applied Physics I",
+        "std_id":"6000000002",
+        "std_grade":"B",
+        "credit_grade":3,
+        "id_sem":"6000000002/1_2020",
+        "course_credit":3,
+        "class_gpa":1.93
+    },
+    {
+        "course_code":"EL172",
+        "course_name":"English Course III",
+        "std_id":"6000000001",
+        "std_grade":"A",
+        "credit_grade":4,
+        "id_sem":"6000000001/2_2020",
+        "course_credit":3,
+        "class_gpa":2.31
+    },
+    {
+        "course_code":"EL172",
+        "course_name":"English Course III",
+        "std_id":"6000000002",
+        "std_grade":"B",
+        "credit_grade":3,
+        "id_sem":"6000000002/2_2020",
+        "course_credit":3,
+        "class_gpa":2.31
+    },
+    {
+        "course_code":"GTS101",
+        "course_name":"Skills Development for Technical Studies",
+        "std_id":"6000000001",
+        "std_grade":"A",
+        "credit_grade":4,
+        "id_sem":"6000000001/2_2020",
+        "course_credit":3,
+        "class_gpa":2.56
+    },
+    {
+        "course_code":"GTS101",
+        "course_name":"Skills Development for Technical Studies",
+        "std_id":"6000000002",
+        "std_grade":"B",
+        "credit_grade":3,
+        "id_sem":"6000000002/2_2020",
+        "course_credit":3,
+        "class_gpa":2.56
+    },
+    {
+        "course_code":"GTS116",
+        "course_name":"Mathmetics for Technologist I",
+        "std_id":"6000000001",
+        "std_grade":"A",
+        "credit_grade":4,
+        "id_sem":"6000000001/2_2020",
+        "course_credit":3,
+        "class_gpa":2.48
+    },
+    {
+        "course_code":"GTS116",
+        "course_name":"Mathmetics for Technologist I",
+        "std_id":"6000000002",
+        "std_grade":"B",
+        "credit_grade":3,
+        "id_sem":"6000000002/2_2020",
+        "course_credit":3,
+        "class_gpa":2.48
+    },
+    {
+        "course_code":"GTS133",
+        "course_name":"Environmental Studies",
+        "std_id":"6000000001",
+        "std_grade":"A",
+        "credit_grade":4,
+        "id_sem":"6000000001/2_2020",
+        "course_credit":3,
+        "class_gpa":2.59
+    },
+    {
+        "course_code":"GTS133",
+        "course_name":"Environmental Studies",
+        "std_id":"6000000002",
+        "std_grade":"B",
+        "credit_grade":3,
+        "id_sem":"6000000002/2_2020",
+        "course_credit":3,
+        "class_gpa":2.59
+    },
+    {
+        "course_code":"ITS100",
+        "course_name":"Introduction to Computers and Programming",
+        "std_id":"6000000001",
+        "std_grade":"A",
+        "credit_grade":4,
+        "id_sem":"6000000001/2_2020",
+        "course_credit":3,
+        "class_gpa":2.81
+    },
+    {
+        "course_code":"ITS100",
+        "course_name":"Introduction to Computers and Programming",
+        "std_id":"6000000002",
+        "std_grade":"B",
+        "credit_grade":3,
+        "id_sem":"6000000002/2_2020",
+        "course_credit":3,
+        "class_gpa":2.81
+    },
+    {
+        "course_code":"MTS252",
+        "course_name":"Material Science",
+        "std_id":"6000000001",
+        "std_grade":"A",
+        "credit_grade":4,
+        "id_sem":"6000000001/2_2020",
+        "course_credit":3,
+        "class_gpa":2.85
+    },
+    {
+        "course_code":"MTS252",
+        "course_name":"Material Science",
+        "std_id":"6000000002",
+        "std_grade":"B",
+        "credit_grade":3,
+        "id_sem":"6000000002/2_2020",
+        "course_credit":3,
+        "class_gpa":2.85
+    },
+    {
+        "course_code":"SCS138",
+        "course_name":"Applied Physics I",
+        "std_id":"6000000001",
+        "std_grade":"A",
+        "credit_grade":4,
+        "id_sem":"6000000001/2_2020",
+        "course_credit":3,
+        "class_gpa":1.93
+    },
+    {
+        "course_code":"SCS138",
+        "course_name":"Applied Physics I",
+        "std_id":"6000000002",
+        "std_grade":"B",
+        "credit_grade":3,
+        "id_sem":"6000000002/2_2020",
+        "course_credit":3,
+        "class_gpa":1.93
+    }
+]
