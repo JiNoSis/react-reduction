@@ -24,3 +24,22 @@
 
 // demos (only for demo pages)
 @import "demos/demos";
+
+
+//for Teacher Profile Pages
+.divCol{
+    float: left;
+    padding: auto;
+}
+.L{
+    width: 75%
+}
+.R{
+    width: 25%
+}
+
+.divRow:after {
+    content: "";
+    display: table;
+    clear:both;
+}
