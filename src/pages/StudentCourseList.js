@@ -1,6 +1,7 @@
 import Page from 'components/Page';
 import React from 'react';
 import { Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import firebase from '../firebase.js';
 const tableTypes = ['', 'bordered', 'striped', 'hover'];
 
