@@ -1,4 +1,5 @@
-import AuthForm, { STATE_LOGIN } from 'components/AuthForm';
+import AuthForm, { STATE_LOGIN} from 'components/AuthForm';
+import LoginForm from 'components/LoginForm';
 import Page from 'components/Page';
 import React from 'react';
 import {
@@ -12,6 +13,7 @@ import {
   Row,
 } from 'reactstrap';
 
+
 class AuthModalPage extends React.Component {
   state = {
     show: false,
@@ -21,12 +23,6 @@ class AuthModalPage extends React.Component {
   toggle = () => {
     this.setState({
       show: !this.state.show,
-    });
-  };
-
-  handleAuthState = authState => {
-    this.setState({
-      authState,
     });
   };
 
@@ -52,7 +48,7 @@ class AuthModalPage extends React.Component {
         <Row>
           <Col md="12" sm="12" xs="12">
             <Card>
-              <CardHeader>Login Modal Example</CardHeader>
+              <CardHeader>Please Login</CardHeader>
               <CardBody>
                 <Button color="danger" onClick={this.toggle}>
                   Click to Login
@@ -66,10 +62,7 @@ class AuthModalPage extends React.Component {
                   external={externalCloseBtn}
                   centered>
                   <ModalBody>
-                    <AuthForm
-                      authState={this.state.authState}
-                      onChangeAuthState={this.handleAuthState}
-                    />
+                    <LoginForm />
                   </ModalBody>
                 </Modal>
               </CardBody>
