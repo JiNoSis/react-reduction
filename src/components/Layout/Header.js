@@ -1,6 +1,6 @@
 import Avatar from 'components/Avatar';
 import { UserCard } from 'components/Card';
-import Notifications from 'components/Notifications';
+import firebase from '../../firebase'
 import SearchInput from 'components/SearchInput';
 import { notificationsData } from 'demos/header';
 import withBadge from 'hocs/withBadge';
@@ -9,8 +9,6 @@ import {
   MdClearAll,
   MdExitToApp,
   MdHelp,
-  MdInsertChart,
-  MdMessage,
   MdNotificationsActive,
   MdNotificationsNone,
   MdPersonPin,
@@ -52,6 +50,34 @@ class Header extends React.Component {
     isOpenUserCardPopover: false,
   };
 
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.setState({
+          currentUser: user, isOpenNotificationPopover: false,
+          isNotificationConfirmed: false,
+          isOpenUserCardPopover: false,
+          button:true
+        });
+        console.log(this.state)
+      }else{
+        this.setState({isOpenNotificationPopover: false,
+          isNotificationConfirmed: false,
+          isOpenUserCardPopover: false,
+          button:false})
+      }
+    })
+  }
+
+  logout = e => {
+    e.preventDefault()
+    firebase.auth().signOut().then(response => {
+      this.setState({
+        currentUser: null
+      })
+    })
+  }
+
   toggleNotificationPopover = () => {
     this.setState({
       isOpenNotificationPopover: !this.state.isOpenNotificationPopover,
@@ -91,44 +117,12 @@ class Header extends React.Component {
 
         <Nav navbar className={bem.e('nav-right')}>
           
+        {(() => {
+          if (this.state.button) {
+          return <button onClick={this.logout}>Logout</button>
+            }
+          })()}
 
-          <NavItem>
-            <NavLink id="Popover2">
-              <Avatar
-                onClick={this.toggleUserCardPopover}
-                className="can-click"
-              />
-            </NavLink>
-            <Popover
-              placement="bottom-end"
-              isOpen={this.state.isOpenUserCardPopover}
-              toggle={this.toggleUserCardPopover}
-              target="Popover2"
-              className="p-0 border-0"
-              style={{ minWidth: 250 }}
-            >
-              <PopoverBody className="p-0 border-light">
-                <UserCard
-                  title="Jane"
-                  subtitle="jane@jane.com"
-                  text="Last updated 3 mins ago"
-                  className="border-light"
-                >
-                  <ListGroup flush>
-                    <ListGroupItem tag="button" action className="border-light">
-                      <MdSettingsApplications /> Settings
-                    </ListGroupItem>
-                    <ListGroupItem tag="button" action className="border-light">
-                      <MdHelp /> Help
-                    </ListGroupItem>
-                    <ListGroupItem tag="button" action className="border-light">
-                      <MdExitToApp /> Signout
-                    </ListGroupItem>
-                  </ListGroup>
-                </UserCard>
-              </PopoverBody>
-            </Popover>
-          </NavItem>
         </Nav>
       </Navbar>
     );
