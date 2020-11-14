@@ -1,10 +1,9 @@
 import logo200Image from 'assets/img/logo/logo_200.png';
 import sidebarBgImage from 'assets/img/sidebar/sidebar-4.jpg';
 import SourceLink from 'components/SourceLink';
+import firebase from '../../firebase'
 import React from 'react';
-import { 
-  FaUserTimes 
-} from 'react-icons/fa';
+import { STATE_LOGIN} from 'components/AuthForm';
 import { FiGitPullRequest,FiChrome } from 'react-icons/fi';
 import {
   MdAccountCircle,
@@ -20,7 +19,6 @@ import { NavLink } from 'react-router-dom';
 
 import {
   // UncontrolledTooltip,
-  Collapse,
   Nav,
   Navbar,
   NavItem,
@@ -36,48 +34,61 @@ const sidebarBackground = {
 
 
 const navItemsS = [
-  { to: '/news-board', name: 'DashBoard News', exact: true, Icon: MdAccountCircle },
   { to: '/profiles', name: 'profile', exact: false, Icon: MdAccountCircle },
-  { to: '/studentCourseList', name: 'ClassSchedule', exact: false, Icon: MdLocalLibrary },
-  { to: '/prof-profiles', name:"Professors", exact: false, Icon: MdAccountCircle},
+  { to: '/studentCourseList', name: 'Class-Schedule', exact: false, Icon: MdLocalLibrary },
   { to: '/', name: 'enrollment', exact: false, Icon: MdLocalLibrary },
-  { to: '/', name: 'course list', exact: false, Icon: MdViewList },
+  { to: '/', name: 'course-lists', exact: false, Icon: MdViewList },
   { to: '/request', name: 'req-certificate', exact: false, Icon: FiGitPullRequest },
   { to: '/gpa', name: 'gpa info', exact: false, Icon: MdPoll },
   { to: '/suggest', name: 'suggestion form', exact: false, Icon: MdSentimentSatisfied },
-  { to: '/', name: 'logout', exact: false, Icon: FaUserTimes }
-];
-
-const navItemsT = [
-  { to: '/prof-profiles', name: 'profile', exact: true, Icon: MdAccountCircle },
-  { to: '/', name: 'course list', exact: false, Icon: MdViewList },
-  { to: '/suggest', name: 'suggestion form', exact: false, Icon: MdSentimentSatisfied },
-  { to: '/', name: 'logout', exact: false, Icon: FaUserTimes }
 ];
 
 const navItemsD = [
-  { to: '/login', name: 'Login', exact: true, Icon: MdAccountCircle },
+  { to: '/login-modal', name: 'Login', exact: true, Icon: MdAccountCircle },
   { to: '/news-board', name: 'News-Board', exact: true, Icon: FiChrome },
+  { to: '/prof-profiles', name:"Professors-Lists", exact: false, Icon: MdAccountCircle},
   { to: '/course-class', name: 'Course-Class', exact: false, Icon: MdLocalLibrary },
-  { to: '/stu-search', name: 'Student Timetable', exact: false, Icon: MdGroup },
-  { to: '/ins-search', name: 'Instructor Timetable', exact: false, Icon: MdBusinessCenter },
-  { to: '/aca-calender', name: 'Academic Calender', exact: false, Icon: MdStorage },
+  { to: '/stu-search', name: 'Student-Timetable', exact: false, Icon: MdGroup },
+  { to: '/ins-search', name: 'Instructor-Timetable', exact: false, Icon: MdBusinessCenter },
+  { to: '/aca-calender', name: 'Academic-Calender', exact: false, Icon: MdStorage },
   { to: '/faqs', name: 'FAQs', exact: false, Icon: MdAssignmentLate },
 ];
 
 
-
 const bem = bn.create('sidebar');
+
 
 class Sidebar extends React.Component {
   state = {
     isOpenComponents: true,
     isOpenContents: true,
     isOpenPages: true,
-    sideBarD:true,
-    sideBarS:false,
-    sideBarT:false
+    authState: STATE_LOGIN,
+    sideBarD: true,
+    sideBarT: false,
+    sideBarS: false
   };
+
+  handleAuthState = authState => {
+    this.setState({
+      authState,
+    });
+  };
+  
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.setState({
+          currentUser: user, sideBarD: false,sideBarS: true
+        });
+        console.log(this.state)
+      }else{
+        this.setState({sideBarD: true,sideBarS: false})
+      }
+    })
+  }
+  
+
 
   handleClick = name => () => {
     this.setState(prevState => {
@@ -89,8 +100,11 @@ class Sidebar extends React.Component {
     });
   };
 
+  
   render() {
+    console.log(this.state.currentUser);
     return (
+      
       <aside className={bem.b()} data-image={sidebarBgImage}>
         <div className={bem.e('background')} style={sidebarBackground} />
         <div className={bem.e('content')}>
@@ -152,33 +166,14 @@ class Sidebar extends React.Component {
           </Nav>
             }
           })()}
-
-          {(() => {
-          if (this.state.sideBarT) {
-          return <Nav vertical>
-            {navItemsT.map(({ to, name, exact, Icon }, index) => (
-              <NavItem key={index} className={bem.e('nav-item')}>
-                <BSNavLink
-                  id={`navItem-${name}-${index}`}
-                  className="text-uppercase"
-                  tag={NavLink}
-                  to={to}
-                  activeClassName="active"
-                  exact={exact}
-                >
-                  <Icon className={bem.e('nav-item-icon')} />
-                  <span className="">{name}</span>
-                </BSNavLink>
-              </NavItem>
-            ))}
-          </Nav>
-            }
-          })()}
         </div>
       </aside>
+      
     );
   }
 }
 
 export default Sidebar;
+
+
 
