@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 
+
 class AuthForm extends React.Component {
+
   get isLogin() {
     return this.props.authState === STATE_LOGIN;
   }
@@ -36,7 +38,11 @@ class AuthForm extends React.Component {
     return buttonText;
   }
 
+  
+
   render() {
+
+
     const {
       showLogo,
       usernameLabel,
@@ -92,17 +98,13 @@ class AuthForm extends React.Component {
         </Button>
 
         <div className="text-center pt-1">
-          <h6>or</h6>
           <h6>
             {this.isSignup ? (
               <a href="#login" onClick={this.changeAuthState(STATE_LOGIN)}>
                 Login
               </a>
-            ) : (
-              <a href="#signup" onClick={this.changeAuthState(STATE_SIGNUP)}>
-                Signup
-              </a>
-            )}
+            ) : null
+            }
           </h6>
         </div>
 
