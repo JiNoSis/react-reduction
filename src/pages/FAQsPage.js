@@ -40,10 +40,10 @@ class ButtonPage extends React.Component {
         <Card className="mb-3">
           <CardHeader>Lists of FAQs</CardHeader>
           <CardBody>
-            <Button outline color="link">
+            <Button outline color="link" href='http://reg.siit.tu.ac.th/registrar/Download/FAQ/FAQs_R.pdf'>
             FAQs for Registration Section
             </Button>
-            <Button outline color="link">
+            <Button outline color="link" href='http://reg.siit.tu.ac.th/registrar/Download/FAQ/FAQs_AS.pdf'>
             FAQs for Academic Service Section
             </Button>
           </CardBody>
