@@ -40,13 +40,13 @@ class ButtonPage extends React.Component {
         <Card className="mb-3">
           <CardHeader>Academic Year 2020</CardHeader>
           <CardBody>
-            <Button outline color="link">
+            <Button outline color="link" href='http://reg.siit.tu.ac.th/registrar/download/calendar/calendar_2020_1.pdf'>
             Semester : 1
             </Button>
-            <Button outline color="link">
+            <Button outline color="link" href='http://reg.siit.tu.ac.th/registrar/download/calendar/calendar_2020_2.pdf'>
             Semester : 2
             </Button>
-            <Button outline color="link">
+            <Button outline color="link" href='http://reg.siit.tu.ac.th/registrar/download/calendar/calendar_2020_3.pdf'>
             Semester : 3
             </Button>
           </CardBody>
@@ -54,13 +54,13 @@ class ButtonPage extends React.Component {
         <Card className="mb-3">
           <CardHeader>Academic Year 2019</CardHeader>
           <CardBody>
-            <Button outline color="link">
+            <Button outline color="link" href='http://reg.siit.tu.ac.th/registrar/download/calendar/calendar_2019_1.pdf'>
             Semester : 1
             </Button>
-            <Button outline color="link">
+            <Button outline color="link" href='http://reg.siit.tu.ac.th/registrar/download/calendar/calendar_2019_2.pdf'>
             Semester : 2
             </Button>
-            <Button outline color="link">
+            <Button outline color="link" href='http://reg.siit.tu.ac.th/registrar/download/calendar/calendar_2019_3.pdf'>
             Semester : 3
             </Button>
           </CardBody>
@@ -68,13 +68,13 @@ class ButtonPage extends React.Component {
         <Card className="mb-3">
           <CardHeader>Academic Year 2018</CardHeader>
           <CardBody>
-            <Button outline color="link">
+            <Button outline color="link" href='http://reg.siit.tu.ac.th/registrar/download/calendar/calendar_2018_1.pdf'>
             Semester : 1
             </Button>
-            <Button outline color="link">
+            <Button outline color="link" href='http://reg.siit.tu.ac.th/registrar/download/calendar/calendar_2018_2.pdf'>
             Semester : 2
             </Button>
-            <Button outline color="link">
+            <Button outline color="link" href='http://reg.siit.tu.ac.th/registrar/download/calendar/calendar_2018_3.pdf'>
             Semester : 3
             </Button>
           </CardBody>
