@@ -257,9 +257,8 @@ render() {
             </thead>
             <tbody>
             <tr className="table-light">
-                <td rowSpan="3" align="center"><iframe src="https://drive.google.com/file/d/1gPFyM-RbOOYcYMhGHMtNd0pU1cQrfmEE/preview" width="150" height="150"></iframe></td>
                 <th scope="row">Credit Attempt:</th>
-                <td>{student.CreditAtm} </td>
+                <td colspan="100%">{student.CreditAtm} </td>
                 <td></td>
                 <td></td>
                 <td></td>
