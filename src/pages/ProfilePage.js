@@ -1,8 +1,7 @@
 import Page from 'components/Page';
 import React from 'react';
-import { Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
+import { Card, CardHeader, Table } from 'reactstrap';
 import firebase from '../firebase.js';
-const tableTypes = ['', 'bordered', 'striped', 'hover'];
 
 class StudentProfile extends React.Component{
   constructor(props) 
@@ -98,7 +97,7 @@ render() {
         tableType = "table-warning"
       }else{tableType= "table-success"};
     
-      if (student.EngStat == "Pass")
+      if (student.EngStat === "Pass")
       {
         tableType2="table-success"
       } else {tableType2="table-warning"}
@@ -431,28 +430,28 @@ render() {
 
 
 //Variable for Database Connection
-  var StdID = 6000000001;
-  var FName = "Mark";
-  var LName = "PhpScript";
-  var Dep = "Information Computer and Communication Technology";
-  var Camp = "Bangkadi Campus";
-  var Prog = "Computer Engineering Curricullum (20XX)";
-  var Minor = "CPE20XX-OptionXX: Game Production Technology";
-  var Lv = "Bachelor";
-  var DegName = "Bachelor of Engineering (Computer Engineering)";
-  var CurName = "Bachelor of Engineering Program in Computer Engineering (International Program)"
-  var AdmY = "20XX/1";
-  var Status = "Active";
-  var AdmT = "WE";
-  var Prev = "M.6 / Grade 12";
-  var PrevGPA = "3.XX";
-  var PrevSch = "SKR";
-  var Adv = "Assoc. Prof. Dr.Ekawit Nantajeewarawat";
-  var CGPA = 3.59;
-  var CreditAtm = 121;
-  var CreditAch = 100;
-  var test = 1;
-  var EngStat = "Pass";
+  //var StdID = 6000000001;
+ // var FName = "Mark";
+  //var LName = "PhpScript";
+ // var Dep = "Information Computer and Communication Technology";
+  //var Camp = "Bangkadi Campus";
+ // var Prog = "Computer Engineering Curricullum (20XX)";
+ // var Minor = "CPE20XX-OptionXX: Game Production Technology";
+ // var Lv = "Bachelor";
+ // var DegName = "Bachelor of Engineering (Computer Engineering)";
+ // var CurName = "Bachelor of Engineering Program in Computer Engineering (International Program)"
+ // var AdmY = "20XX/1";
+ // var Status = "Active";
+ // var AdmT = "WE";
+ // var Prev = "M.6 / Grade 12";
+ // var PrevGPA = "3.XX";
+ // var PrevSch = "SKR";
+ // var Adv = "Assoc. Prof. Dr.Ekawit Nantajeewarawat";
+ // var CGPA = 3.59;
+ // var CreditAtm = 121;
+ // var CreditAch = 100;
+//  var test = 1;
+ // var EngStat = "Pass";
   var tofelscr = 30;
   var ieltsce = 9;
   var tu_get_scr = 800;
@@ -467,6 +466,6 @@ render() {
   var CEFR_scr = 220;
   var tu005_scr;
   var tu006_scr;
-  var native = "Native";
+ var native = "Native";
 
 export default StudentProfile;
