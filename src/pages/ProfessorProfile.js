@@ -12,8 +12,10 @@ class TeacherProfile extends React.Component{
     {
       ProfessorICT: [],
       ProfessorCHE: [],
+      staff:[],
       hasICT:false,
-      hasCHE:false
+      hasCHE:false,
+      hasStaff: false
 
     };
 
@@ -23,20 +25,20 @@ class TeacherProfile extends React.Component{
     const teacherRef= firebase.database().ref('Teachers').orderByChild('faculty').equalTo("ICT");
     teacherRef.once('value', (snapshot) => {
       console.log(snapshot.key);
-      let teacher1 = snapshot.val();
-      console.log(teacher1);
+      let teacher2 = snapshot.val();
+      console.log(teacher2);
       let newState=[];
-      for (let teachers in teacher1){
+      for (let teachers in teacher2){
           newState.push({
-              Prof_rank: teacher1[teachers].Prof_rank,
-              FName: teacher1[teachers].FName,
-              LName: teacher1[teachers].LName,
-              Dep: teacher1[teachers].Dep,
-              faculty: teacher1[teachers].faculty,
-              History: teacher1[teachers].History,
-              DepTel: teacher1[teachers].DepTel,
-              Email: teacher1[teachers].Email,
-              Achv: teacher1[teachers].Achv
+            Prof_rank: teacher2[teachers].Prof_rank,
+            FName: teacher2[teachers].FName,
+            LName: teacher2[teachers].LName,
+            faculty: teacher2[teachers].faculty,
+            History: teacher2[teachers].History,
+            DepTel: teacher2[teachers].DepTel,
+            DepTel_Rangsit: teacher2[teachers].DepTel_Rangsit,
+            Email: teacher2[teachers].Email,
+            Img: teacher2[teachers].Img
           });
 
            this.setState({ProfessorICT: newState});
@@ -46,27 +48,27 @@ class TeacherProfile extends React.Component{
         };
       });
 
-      const teacherRef1= firebase.database().ref('Teachers').orderByChild('faculty').equalTo("CHE");
-      teacherRef1.once('value', (snapshot) => {
+      const StaffRef= firebase.database().ref('Teachers').orderByChild('faculty').equalTo("STA");
+      StaffRef.once('value', (snapshot) => {
       console.log(snapshot.key);
-      let teacher2 = snapshot.val();
-      console.log(teacher2);
+      let  Staff2 = snapshot.val();
+      console.log(Staff2);
       let newState2=[];
-      for (let teachers in teacher2){
+      for (let teachers in Staff2){
           newState2.push({
-              Prof_rank: teacher2[teachers].Prof_rank,
-              FName: teacher2[teachers].FName,
-              LName: teacher2[teachers].LName,
-              Dep: teacher2[teachers].Dep,
-              faculty: teacher2[teachers].faculty,
-              History: teacher2[teachers].History,
-              DepTel: teacher2[teachers].DepTel,
-              Email: teacher2[teachers].Email,
-              Achv: teacher2[teachers].Achv
+              Prof_rank: Staff2[teachers].Prof_rank,
+              FName: Staff2[teachers].FName,
+              LName: Staff2[teachers].LName,
+              faculty: Staff2[teachers].faculty,
+              History: Staff2[teachers].History,
+              DepTel: Staff2[teachers].DepTel,
+              DepTel_Rangsit: Staff2[teachers].DepTel_Rangsit,
+              Email: Staff2[teachers].Email,
+              Img: Staff2[teachers].Img
           });
 
-           this.setState({ProfessorCHE: newState2});
-           this.setState({hasCHE: true});
+           this.setState({staff: newState2});
+           this.setState({hasStaff: true});
  
         };
 
@@ -92,9 +94,10 @@ render() {
           {(() => {
            if (this.state.hasICT) {
           return <Card className="mb-3">
-          <CardHeader>School of ICT </CardHeader>
+          <CardHeader>School of Computer Engineering and Information Technology </CardHeader>
 
         {this.state.ProfessorICT.map((prof) => {
+          let pic_src= String(prof.Img.replaceAll("@","."));
 
           return(
        
@@ -104,33 +107,71 @@ render() {
                <thead>
    
                  <tr className="table-primary">
-          <th colspan = "100%">{prof.Prof_rank.replaceAll("_",".")}  {prof.FName}  {prof.LName}</th>
+          <th>{prof.Prof_rank.replaceAll("_",".")}  {prof.FName}  {prof.LName}</th>
+          <td></td>
+                 <td></td>
+                 <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                 <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+
+          <td align="Right" rowSpan="3" colSpan="100%"> <iframe src={pic_src} width="125" height="150"></iframe></td>
             <td></td>
                  </tr>
                </thead>
                <tbody>
                  <tr className="table-info">
-                 <td align="Left" rowSpan="5"><iframe src="https://drive.google.com/file/d/1gPFyM-RbOOYcYMhGHMtNd0pU1cQrfmEE/preview" width="200" height="200"></iframe></td>
-                 <th scope="row">Department:</th>
-                 
-                 <td colspan="100%">{prof.Dep}</td>
-                 
+                 <th colspan="100%">{prof.History}</th>
+                 <td colspan ="100%"></td>
                  </tr>
                  <tr className = "table-info">
-                 <th scope="row">Department Telephone:</th>
-                 <td colspan="100%">{prof.DepTel}</td>
+                 <th scope="row">Bangkadi Telephone:</th>
+                 <td colspan="100%" align="left">{prof.DepTel.replaceAll("_",".")}</td>
+                 <td colspan ="100%"></td>
                  </tr>
+                 {prof.DepTel_Rangsit!="" &&
+                 <tr className = "table-info">
+                   <th scope="row">Rangsit Telephone:</th>
+                 <td colspan="100%">{prof.DepTel_Rangsit.replaceAll("_",".")}</td>
+                 <td colspan ="100%"></td>
+                </tr>}
                  <tr className = "table-info">
                  <th scope="row">Email:</th>
-                 <td colspan="100%">{prof.Email}</td>
-                 </tr>
-                 <tr className = "table-info">
-                 <th scope="row">Technical Achievement:</th>
-                 <td colspan="100%">{prof.Achv}</td>
-                 </tr>
-                 <tr className = "table-info">
-                 <th scope="row">History:</th>
-                 <td colspan="100%">{prof.History}</td>
+                 <td colspan="100%">{prof.Email.replaceAll("_",".")}</td>
+                 <td colspan ="100%"></td>
                  </tr>
                </tbody>
              </Table>
@@ -144,11 +185,12 @@ render() {
           }
           })()}
           {(() => {
-           if (this.state.hasCHE) {
+           if (this.state.hasStaff) {
           return <Card className="mb-3">
-          <CardHeader>School of CHE </CardHeader>
+          <CardHeader>Staff of ICT</CardHeader>
 
-        {this.state.ProfessorCHE.map((prof) => {
+        {this.state.staff.map((prof) => {
+          let pic_src= String(prof.Img.replaceAll("@","."));
 
           return(
        
@@ -158,33 +200,72 @@ render() {
                <thead>
    
                  <tr className="table-primary">
-          <th colspan = "100%">{prof.Prof_rank.replaceAll("_",".")}  {prof.FName}  {prof.LName}</th>
+            <th colspan = "100%">{prof.Prof_rank.replaceAll("_",".")}  {prof.FName}  {prof.LName}</th>
             <td></td>
+                 <td></td>
+                 <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                 <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+          <td align="Right" rowSpan="3" colSpan="100%"> <iframe src={pic_src} width="125" height="150"></iframe></td>
+          <td></td>
                  </tr>
                </thead>
                <tbody>
                  <tr className="table-info">
-                 <td align="Left" rowSpan="5"><iframe src="https://drive.google.com/file/d/1gPFyM-RbOOYcYMhGHMtNd0pU1cQrfmEE/preview" width="200" height="200"></iframe></td>
-                 <th scope="row">Department:</th>
-                 
-                 <td colspan="100%">{prof.Dep}</td>
-                 
+                 <th colspan="100%">{prof.History}</th>
+                 <td colspan ="100%"></td>
+                 <td colspan ="100%"></td>
                  </tr>
                  <tr className = "table-info">
-                 <th scope="row">Department Telephone:</th>
-                 <td colspan="100%">{prof.DepTel}</td>
+                 <th scope="row">Bankadi Telephone:</th>
+                 <td colspan="100%">{prof.DepTel.replaceAll("_",".")}</td>
+                 <td colspan ="100%"></td>
+                 <td colspan ="100%"></td>
                  </tr>
+                 {prof.DepTel_Rangsit!="" &&
+                 <tr className = "table-info">
+                   <th scope="row">Rangsit Telephone:</th>
+                 <td colspan="100%">{prof.DepTel_Rangsit.replaceAll("_",".")}</td>
+                 <td colspan ="100%"></td>
+                </tr>}
                  <tr className = "table-info">
                  <th scope="row">Email:</th>
-                 <td colspan="100%">{prof.Email}</td>
-                 </tr>
-                 <tr className = "table-info">
-                 <th scope="row">Technical Achievement:</th>
-                 <td colspan="100%">{prof.Achv}</td>
-                 </tr>
-                 <tr className = "table-info">
-                 <th scope="row">History:</th>
-                 <td colspan="100%">{prof.History}</td>
+                 <td colspan="100%">{prof.Email.replaceAll("_",".")}</td>
+                 <td colspan ="100%"></td>
+                 <td colspan ="100%"></td>
                  </tr>
                </tbody>
              </Table>
