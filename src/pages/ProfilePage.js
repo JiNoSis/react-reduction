@@ -21,8 +21,9 @@ class StudentProfile extends React.Component{
         this.setState({
           currentUser: user
         });
+        const StdID = this.state.currentUser.email.slice(0,10);
 
-        const studentRef= firebase.database().ref('Students').orderByChild('StdID').equalTo(6000000001);
+        const studentRef= firebase.database().ref('Students').orderByChild('StdID').equalTo(StdID);
         studentRef.once('value', (snapshot) => {
           console.log(snapshot.key);
           let students1 = snapshot.val();
