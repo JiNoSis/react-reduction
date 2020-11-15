@@ -35,9 +35,8 @@ const sidebarBackground = {
 
 const navItemsS = [
   { to: '/profiles', name: 'profile', exact: false, Icon: MdAccountCircle },
-  { to: '/studentCourseList', name: 'Class-Schedule', exact: false, Icon: MdLocalLibrary },
   { to: '/', name: 'enrollment', exact: false, Icon: MdLocalLibrary },
-  { to: '/', name: 'course-lists', exact: false, Icon: MdViewList },
+  { to: '/studentCourseList', name: 'Class-Schedule', exact: false, Icon: MdViewList },
   { to: '/request', name: 'req-certificate', exact: false, Icon: FiGitPullRequest },
   { to: '/gpa', name: 'gpa info', exact: false, Icon: MdPoll },
   { to: '/suggest', name: 'suggestion form', exact: false, Icon: MdSentimentSatisfied },
@@ -81,7 +80,6 @@ class Sidebar extends React.Component {
         this.setState({
           currentUser: user, sideBarD: false,sideBarS: true
         });
-        console.log(this.state)
       }else{
         this.setState({sideBarD: true,sideBarS: false})
       }
@@ -102,7 +100,6 @@ class Sidebar extends React.Component {
 
   
   render() {
-    console.log(this.state.currentUser);
     return (
       
       <aside className={bem.b()} data-image={sidebarBgImage}>
