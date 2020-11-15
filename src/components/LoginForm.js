@@ -58,7 +58,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    const { message, currentUser } = this.state
+    const { currentUser } = this.state
 
     if (currentUser) {
       return (

@@ -1,4 +1,4 @@
-import AuthForm, { STATE_LOGIN} from 'components/AuthForm';
+import { STATE_LOGIN} from 'components/AuthForm';
 import LoginForm from 'components/LoginForm';
 import Page from 'components/Page';
 import React from 'react';
