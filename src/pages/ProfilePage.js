@@ -15,13 +15,20 @@ class StudentProfile extends React.Component{
   };
 
   componentDidMount() {
-    const studentRef= firebase.database().ref('Students').orderByChild('StdID').equalTo(6000000002);
-    studentRef.once('value', (snapshot) => {
-      console.log(snapshot.key);
-      let students1 = snapshot.val();
-      let newState=[];
-      for (let students in students1){
-          newState.push({
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.setState({
+          currentUser: user
+        });
+
+        const studentRef= firebase.database().ref('Students').orderByChild('StdID').equalTo(6000000001);
+        studentRef.once('value', (snapshot) => {
+          console.log(snapshot.key);
+          let students1 = snapshot.val();
+          let newState=[];
+          for (let students in students1){
+            newState.push({
               StdID: students1[students].StdID,
               FName: students1[students].FName,
               LName: students1[students].LName,
@@ -59,14 +66,15 @@ class StudentProfile extends React.Component{
               tu005_scr: students1[students].tu005_scr,
               tu006_scr: students1[students].tu006_scr,
               native : students1[students].native
-          });
-          this.setState({students: newState});
-          console.log(this.state.students)
-        }
-    });
+            });
+            this.setState({students: newState});
 
+          }
+        });
+        
 
-
+      }
+    })
   } ;
 
   MappedData()
