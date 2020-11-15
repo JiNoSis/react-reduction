@@ -1,8 +1,7 @@
 import Page from 'components/Page';
 import React from 'react';
-import { Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
+import { Card, CardHeader, Table } from 'reactstrap';
 import firebase from '../firebase.js';
-const tableTypes = ['', 'bordered', 'striped', 'hover'];
 
 class TeacherProfile extends React.Component{
   constructor(props) 
