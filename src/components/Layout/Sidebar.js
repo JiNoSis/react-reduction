@@ -46,9 +46,9 @@ const navItemsD = [
   { to: '/login-modal', name: 'Login', exact: true, Icon: MdAccountCircle },
   { to: '/news-board', name: 'News-Board', exact: true, Icon: FiChrome },
   { to: '/prof-profiles', name:"Professors-Lists", exact: false, Icon: MdAccountCircle},
+  { to: '/stu-search', name: 'Student-Lists', exact: false, Icon: MdGroup },
   { to: '/course-class', name: 'Course-Class', exact: false, Icon: MdLocalLibrary },
-  { to: '/stu-search', name: 'Student-Timetable', exact: false, Icon: MdGroup },
-  { to: '/ins-search', name: 'Instructor-Timetable', exact: false, Icon: MdBusinessCenter },
+  //{ to: '/ins-search', name: 'Instructor-Timetable', exact: false, Icon: MdBusinessCenter },
   { to: '/aca-calender', name: 'Academic-Calender', exact: false, Icon: MdStorage },
   { to: '/faqs', name: 'FAQs', exact: false, Icon: MdAssignmentLate },
 ];
