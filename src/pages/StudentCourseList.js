@@ -1,12 +1,10 @@
 import Page from 'components/Page';
 import React from 'react';
-import { Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { Card, CardBody, CardHeader, Table } from 'reactstrap';
 import firebase from '../firebase.js';
-const tableTypes = ['', 'bordered', 'striped', 'hover'];
 
 
-var StdID ="60000001";
+var StdID =6000000001;
 var Mon1,M1_room;
 var Mon2,M2_room;
 var Tue1,T1_room;
@@ -32,7 +30,7 @@ class StudentCourseList extends React.Component{
   };
 
   componentDidMount() {
-    const CourseRef= firebase.database().ref('Std_Course').orderByChild('StdID').equalTo(6000000001);
+    const CourseRef= firebase.database().ref('Std_Course').orderByChild('StdID').equalTo(StdID);
     CourseRef.once('value', (snapshot) => {
       console.log(snapshot.val());
       let courseref1 = snapshot.val();
@@ -74,52 +72,52 @@ render() {
     >
          {this.state.Course.map((course)=>{
 
-        if(course.schedule_date == "Monday" && course.schedule_time == "9_00-12_00"){
+        if(course.schedule_date === "Monday" && course.schedule_time === "9_00-12_00"){
             Mon1 = course.course_code;
             M1_room = course.room;
             
         }
-        if(course.schedule_date == "Monday" && course.schedule_time == "13_00-16_00"){
+        if(course.schedule_date === "Monday" && course.schedule_time === "13_00-16_00"){
             Mon2 = course.course_code;
             M2_room = course.room;
             
         }
-        if(course.schedule_date == "Tuesday" && course.schedule_time == "9_00-12_00"){
+        if(course.schedule_date === "Tuesday" && course.schedule_time === "9_00-12_00"){
             Tue1 = course.course_code;
             T1_room = course.room;
             
         }
-        if(course.schedule_date == "Tuesday" && course.schedule_time == "13_00-16_00"){
+        if(course.schedule_date === "Tuesday" && course.schedule_time === "13_00-16_00"){
             Tue2 = course.course_code;
             T2_room = course.room;
             
         }
-        if(course.schedule_date == "Wednesday" && course.schedule_time == "9_00-12_00"){
+        if(course.schedule_date === "Wednesday" && course.schedule_time === "9_00-12_00"){
             Wed1 = course.course_code;
             W1_room = course.room; 
         }
 
-        if(course.schedule_date == "Wednesday" && course.schedule_time == "13_00-16_00"){
+        if(course.schedule_date === "Wednesday" && course.schedule_time === "13_00-16_00"){
             Wed2 = course.course_code;
             W2_room = course.room;
             
         }
-        if(course.schedule_date == "Thursday" && course.schedule_time == "9_00-12_00"){
+        if(course.schedule_date === "Thursday" && course.schedule_time === "9_00-12_00"){
             Thu1 = course.course_code;
             Th1_room = course.room;
             
         }
-        if(course.schedule_date == "Thursday" && course.schedule_time == "13_00-16_00"){
+        if(course.schedule_date === "Thursday" && course.schedule_time === "13_00-16_00"){
             Thu2 = course.course_code;
             Th2_room = course.room;
             
         }
-        if(course.schedule_date == "Friday" && course.schedule_time == "9_00-12_00"){
+        if(course.schedule_date === "Friday" && course.schedule_time === "9_00-12_00"){
             Fri1 = course.course_code;
             F1_room = course.room; 
         }
 
-        if(course.schedule_date == "Friday" && course.schedule_time == "13_00-16_00"){
+        if(course.schedule_date === "Friday" && course.schedule_time === "13_00-16_00"){
             Fri2 = course.course_code;
             F2_room = course.room;
             
