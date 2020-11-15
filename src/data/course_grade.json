@@ -448,6 +448,145 @@
         "id_sem":"6000000001/2_2019",
         "course_credit":1,
         "class_gpa":3.11
+    },{
+        "course_code":"EL172",
+        "course_name":"English Course III",
+        "std_id":"6200000002",
+        "std_grade":"D",
+        "credit_grade":1,
+        "id_sem":"6200000002/1_2019",
+        "course_credit":3,
+        "class_gpa":2.31
+    },
+    {
+        "course_code":"GTS101",
+        "course_name":"Skills Development for Technical Studies",
+        "std_id":"6200000002",
+        "std_grade":"C+",
+        "credit_grade":2.5,
+        "id_sem":"6200000002/1_2019",
+        "course_credit":3,
+        "class_gpa":2.56
+    },
+    {
+        "course_code":"GTS116",
+        "course_name":"Mathematics for Technologists I",
+        "std_id":"6200000002",
+        "std_grade":"B+",
+        "credit_grade":3.5,
+        "id_sem":"6200000002/1_2019",
+        "course_credit":3,
+        "class_gpa":2.48
+    },
+    {
+        "course_code":"GTS133",
+        "course_name":"Environmental Studies",
+        "std_id":"6200000002",
+        "std_grade":"B",
+        "credit_grade":3,
+        "id_sem":"6200000002/1_2019",
+        "course_credit":3,
+        "class_gpa":2.59
+    },
+    {
+        "course_code":"ITS100",
+        "course_name":"Introduction to Computers and Programming",
+        "std_id":"6200000002",
+        "std_grade":"A",
+        "credit_grade":4,
+        "id_sem":"6200000002/1_2019",
+        "course_credit":3,
+        "class_gpa":2.81
+    },
+    {
+        "course_code":"MTS252",
+        "course_name":"Materials Science",
+        "std_id":"6200000002",
+        "std_grade":"B",
+        "credit_grade":3,
+        "id_sem":"6200000002/1_2019",
+        "course_credit":3,
+        "class_gpa":2.85
+    },
+    {
+        "course_code":"SCS138",
+        "course_name":"Applied Physics I",
+        "std_id":"6200000002",
+        "std_grade":"B",
+        "credit_grade":3,
+        "id_sem":"6200000002/1_2019",
+        "course_credit":3,
+        "class_gpa":1.93
+    },
+    {
+        "course_code":"EC210",
+        "course_name":"Introductory Economics",
+        "std_id":"6200000002",
+        "std_grade":"C",
+        "credit_grade":2,
+        "id_sem":"6200000002/2_2019",
+        "course_credit":3,
+        "class_gpa":2.21
+    },
+    {
+        "course_code":"GTS117",
+        "course_name":"Mathematics for Technologists II",
+        "std_id":"6200000002",
+        "std_grade":"B+",
+        "credit_grade":3.5,
+        "id_sem":"6200000002/2_2019",
+        "course_credit":3,
+        "class_gpa":2.13
+    },
+    {
+        "course_code":"ITS102",
+        "course_name":"Object-oriented Programming",
+        "std_id":"6200000002",
+        "std_grade":"A",
+        "credit_grade":4,
+        "id_sem":"6200000002/2_2019",
+        "course_credit":3,
+        "class_gpa":2.69
+    },
+    {
+        "course_code":"ITS103",
+        "course_name":"Object-oriented Programming Laboratory",
+        "std_id":"6200000002",
+        "std_grade":"A",
+        "credit_grade":4,
+        "id_sem":"6200000002/2_2019",
+        "course_credit":1,
+        "class_gpa":3.09
+    },
+    {
+        "course_code":"SCS139",
+        "course_name":"Applied Physics II",
+        "std_id":"6200000002",
+        "std_grade":"C",
+        "credit_grade":2,
+        "id_sem":"6200000002/2_2019",
+        "course_credit":3,
+        "class_gpa":1.99
+    },
+    {
+        "course_code":"TU100",
+        "course_name":"Civic Engagement",
+        "std_id":"6200000002",
+        "std_grade":"A",
+        "credit_grade":4,
+        "id_sem":"6200000002/2_2019",
+        "course_credit":3,
+        "class_gpa":3.44
+    },
+    {
+        "course_code":"TU130",
+        "course_name":"Integrated Sciences and Technology",
+        "std_id":"6200000002",
+        "std_grade":"B+",
+        "credit_grade":3.5,
+        "id_sem":"6200000002/2_2019",
+        "course_credit":2,
+        "class_gpa":2.41
     }
     
 ]
