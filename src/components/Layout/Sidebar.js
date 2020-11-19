@@ -10,7 +10,7 @@ import {
   MdSentimentSatisfied,
   MdViewList,
   MdPoll,
-  MdBusinessCenter,MdStorage,MdAssignmentLate,
+  MdStorage,MdAssignmentLate,
   MdGroup,
   MdLocalLibrary
 } from 'react-icons/md';
@@ -35,7 +35,7 @@ const sidebarBackground = {
 
 const navItemsS = [
   { to: '/profiles', name: 'profile', exact: false, Icon: MdAccountCircle },
-  { to: '/', name: 'enrollment', exact: false, Icon: MdLocalLibrary },
+  //{ to: '/', name: 'enrollment', exact: false, Icon: MdLocalLibrary },
   { to: '/studentCourseList', name: 'Class-Schedule', exact: false, Icon: MdViewList },
   { to: '/request', name: 'req-certificate', exact: false, Icon: FiGitPullRequest },
   { to: '/gpa', name: 'gpa info', exact: false, Icon: MdPoll },
@@ -47,7 +47,7 @@ const navItemsD = [
   { to: '/news-board', name: 'News-Board', exact: true, Icon: FiChrome },
   { to: '/prof-profiles', name:"Professors-Lists", exact: false, Icon: MdAccountCircle},
   { to: '/stu-search', name: 'Student-Lists', exact: false, Icon: MdGroup },
-  { to: '/course-class', name: 'Course-Class', exact: false, Icon: MdLocalLibrary },
+  //{ to: '/course-class', name: 'Course-Class', exact: false, Icon: MdLocalLibrary },
   //{ to: '/ins-search', name: 'Instructor-Timetable', exact: false, Icon: MdBusinessCenter },
   { to: '/aca-calender', name: 'Academic-Calender', exact: false, Icon: MdStorage },
   { to: '/faqs', name: 'FAQs', exact: false, Icon: MdAssignmentLate },
