@@ -13,22 +13,50 @@ import {
 
 import firebase from '../firebase';
 
-var requestRef = firebase.database().ref('Suggest');
-var today = new Date();
-var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
 
-const SuggestPage = () => {
+class SuggestPage extends React.Component{
 
-  const handleSubmit = (e) =>{
-    var textt = document.getElementById('selectText').value;
-    var proff = document.getElementById('selectProf').value;
-    var newRequestRef = requestRef.push();
-    newRequestRef.set({
-      std_id: '6000000001',
-      text: textt,
-      prof: proff
-    });
-  }
+    constructor(props) 
+    {
+      super(props);
+      this.state = 
+      {
+        studentid: ''
+      };
+  
+    };
+  
+    componentDidMount() {
+  
+      firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+          this.setState({
+            currentUser: user
+          });
+          //console.log(user);
+          const std_id = this.state.currentUser.email.slice(0,10);
+          this.setState({studentid:std_id});
+        }
+      });
+    };
+  
+  
+    render(){
+      const handleSubmit = (e) =>{
+        var id = this.state.studentid;
+        var textt = document.getElementById('selectText').value;
+        var proff = document.getElementById('selectProf').value;
+        var newRequestRef = requestRef.push();
+        newRequestRef.set({
+          std_id: id,
+          text: textt,
+          prof: proff
+        });
+      }
+    
+      var requestRef = firebase.database().ref('Suggest');
+      var today = new Date();
+      var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
   return (
     <Page title="Suggestion Forms" breadcrumbs={[{ name: 'suggest', active: true }]}>
       <Card>
@@ -91,5 +119,6 @@ const SuggestPage = () => {
       </Card>
     </Page>
   );
+};
 };
 export default SuggestPage;

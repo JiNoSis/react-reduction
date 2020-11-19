@@ -16,8 +16,8 @@ import firebase from '../firebase';
 
 
 
-
 class FormPage extends React.Component{
+
   constructor(props) 
   {
     super(props);
@@ -43,7 +43,6 @@ class FormPage extends React.Component{
   };
 
 
-
   render(){
     const handleSubmit = (e) =>{
       var id = this.state.studentid;
@@ -56,13 +55,12 @@ class FormPage extends React.Component{
         request_type: doc,
         num_copy: num,
         campus: cam
-        });
-      }
-    console.log(this.state.studentid);
-    var requestRef = firebase.database().ref('Request');
-    //var std_id;
-    var today = new Date();
-    var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+      });
+    }
+  
+var requestRef = firebase.database().ref('Request');
+var today = new Date();
+var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
   return (
     <Page title="Request Forms" breadcrumbs={[{ name: 'request', active: true }]}>
       <Card>
@@ -111,6 +109,5 @@ class FormPage extends React.Component{
   );
 };
 };
-
 
 export default FormPage;
