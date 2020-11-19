@@ -58,7 +58,7 @@ class FormPage extends React.Component{
         campus: cam
         });
       }
-    console.log(this.state.studentid);
+    //console.log(this.state.studentid);
     var requestRef = firebase.database().ref('Request');
     //var std_id;
     var today = new Date();
