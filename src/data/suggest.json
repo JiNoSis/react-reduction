@@ -1,12 +1,12 @@
 [
     {
-        "std_id":"6000000001"
+        "std_id":"6000000001",
         "text":"I hate you.",
-        "prof":"Assoc. Prof. Dr.Nguyen Duy Hung",
+        "prof":"Assoc. Prof. Dr.Nguyen Duy Hung"
     },
     {
-        "std_id":"6000000001"
+        "std_id":"6000000001",
         "text":"We love them all the same",
-        "prof":"Dr.Sumeth Yuenyong<",
+        "prof":"Dr.Sumeth Yuenyong<"
     }
 ]
