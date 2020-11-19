@@ -46,12 +46,13 @@ class FormPage extends React.Component{
 
   render(){
     const handleSubmit = (e) =>{
+      var id = this.state.studentid;
       var doc = document.getElementById('selectDoc').value;
       var num = document.getElementById('selectNum').value;
       var cam = document.getElementById('selectCam').value;
       var newRequestRef = requestRef.push();
       newRequestRef.set({
-        std_id: '6000000001',
+        std_id: id,
         request_type: doc,
         num_copy: num,
         campus: cam
