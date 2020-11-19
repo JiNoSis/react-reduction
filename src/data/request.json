@@ -1,0 +1,13 @@
+[
+    {
+        "std_id":"6000000001",
+        "request_type":"Academic Record (Transcript)",
+        "num_copy":3,
+        "campus":"Rangsit Campus"
+    },
+    {
+        "std_id":"6000000001",
+        "request_type":"Eng-Instruction Certificate - RS (English Version)",
+        "num_copy":1,
+        "campus":"Bangkadi Campus"
+    }
