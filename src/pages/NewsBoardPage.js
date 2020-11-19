@@ -2,7 +2,7 @@
 import Page from 'components/Page';
 import React from 'react';
 import {
-  Button,
+  
   Card,
   CardBody,
   CardText,
@@ -29,9 +29,6 @@ const CardPage = () => {
 
         <CardBody className="d-flex justify-content-between align-items-center">
           <CardText>ANNOUNCED BY   AS&R Division   ANNOUNCED DATE   8 October 2020</CardText>
-          <Button outline color="light">
-            Click
-          </Button>
         </CardBody>
       </Card>
       <br></br>
@@ -43,9 +40,6 @@ const CardPage = () => {
 
         <CardBody className="d-flex justify-content-between align-items-center">
           <CardText>ANNOUNCED BY   -   ANNOUNCED DATE   8 October 2020</CardText>
-          <Button outline color="light">
-            Click
-          </Button>
         </CardBody>
       </Card>
       <br></br>
@@ -64,9 +58,6 @@ const CardPage = () => {
 
         <CardBody className="d-flex justify-content-between align-items-center">
           <CardText>ANNOUNCED BY   -   ANNOUNCED DATE   6 October 2020</CardText>
-          <Button outline color="light">
-            Click
-          </Button>
         </CardBody>
       </Card>
       <br></br>
@@ -83,9 +74,6 @@ const CardPage = () => {
 
         <CardBody className="d-flex justify-content-between align-items-center">
           <CardText>ANNOUNCED BY   AS&R   ANNOUNCED DATE   29 September 2020</CardText>
-          <Button outline color="light">
-            Click
-          </Button>
         </CardBody>
       </Card>
       <br></br>
