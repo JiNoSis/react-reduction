@@ -13,26 +13,20 @@ import {
 import firebase from '../firebase';
 
 
-var requestRef = firebase.database().ref('Request');
-var std_id;
-var today = new Date();
-var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
 
 
-const handleSubmit = (e) =>{
-  var doc = document.getElementById('selectDoc').value;
-  var num = document.getElementById('selectNum').value;
-  var cam = document.getElementById('selectCam').value;
-  var newRequestRef = requestRef.push();
-  newRequestRef.set({
-    std_id: '6000000001',
-    request_type: doc,
-    num_copy: num,
-    campus: cam
-  });
-}
+
 
 class FormPage extends React.Component{
+  constructor(props) 
+  {
+    super(props);
+    this.state = 
+    {
+      studentid: null
+    };
+
+  };
 
   componentDidMount() {
 
@@ -41,8 +35,9 @@ class FormPage extends React.Component{
         this.setState({
           currentUser: user
         });
-        std_id.setState(this.state.currentUser.email.slice(0,10));
-        console.log(std_id);
+        //console.log(user);
+        const std_id = this.state.currentUser.email.slice(0,10);
+        this.setState({studentid:std_id});
       }
     });
   };
@@ -50,6 +45,23 @@ class FormPage extends React.Component{
 
 
   render(){
+    const handleSubmit = (e) =>{
+      var doc = document.getElementById('selectDoc').value;
+      var num = document.getElementById('selectNum').value;
+      var cam = document.getElementById('selectCam').value;
+      var newRequestRef = requestRef.push();
+      newRequestRef.set({
+        std_id: '6000000001',
+        request_type: doc,
+        num_copy: num,
+        campus: cam
+        });
+      }
+    console.log(this.state.studentid);
+    var requestRef = firebase.database().ref('Request');
+    //var std_id;
+    var today = new Date();
+    var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
   return (
     <Page title="Request Forms" breadcrumbs={[{ name: 'request', active: true }]}>
       <Card>
