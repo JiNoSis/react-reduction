@@ -25,7 +25,7 @@ class StudentProfile extends React.Component{
 
         const studentRef= firebase.database().ref('Students').orderByChild('StdID').equalTo(StdID);
         studentRef.once('value', (snapshot) => {
-          console.log(snapshot.key);
+          //console.log(snapshot.key);
           let students1 = snapshot.val();
           let newState=[];
           for (let students in students1){
