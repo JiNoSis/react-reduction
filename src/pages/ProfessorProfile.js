@@ -161,7 +161,7 @@ render() {
                  <td colspan="100%" align="left">{prof.DepTel.replaceAll("_",".")}</td>
                  <td colspan ="100%"></td>
                  </tr>
-                 {prof.DepTel_Rangsit!="" &&
+                 {prof.DepTel_Rangsit!=="" &&
                  <tr className = "table-info">
                    <th scope="row">Rangsit Telephone:</th>
                  <td colspan="100%">{prof.DepTel_Rangsit.replaceAll("_",".")}</td>
@@ -254,7 +254,7 @@ render() {
                  <td colspan ="100%"></td>
                  <td colspan ="100%"></td>
                  </tr>
-                 {prof.DepTel_Rangsit!="" &&
+                 {prof.DepTel_Rangsit!=="" &&
                  <tr className = "table-info">
                    <th scope="row">Rangsit Telephone:</th>
                  <td colspan="100%">{prof.DepTel_Rangsit.replaceAll("_",".")}</td>
