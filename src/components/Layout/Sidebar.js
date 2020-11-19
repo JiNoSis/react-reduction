@@ -11,8 +11,7 @@ import {
   MdViewList,
   MdPoll,
   MdStorage,MdAssignmentLate,
-  MdGroup,
-  MdLocalLibrary
+  MdGroup
 } from 'react-icons/md';
 
 import { NavLink } from 'react-router-dom';
