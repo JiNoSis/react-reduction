@@ -23,7 +23,7 @@ class FormPage extends React.Component{
     super(props);
     this.state = 
     {
-      studentid: null
+      studentid: ''
     };
 
   };
