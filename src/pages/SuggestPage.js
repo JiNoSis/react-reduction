@@ -67,11 +67,11 @@ class SuggestPage extends React.Component{
           <br></br>
           <FormGroup>
             <Label for="exampleText">Suggestion Sentence (You can specify up to 255 Characters.)</Label>
-            <Input type="textarea" name="text" rows="10"/>
+            <Input type="textarea" name="selectText" id="selectText" rows="10"/>
           </FormGroup>
           <FormGroup>
             <Label for="exampleSelect">Answer : </Label>
-            <Input type="select" name="selectProf">
+            <Input type="select" name="selectProf" id="selectProf">
               <option>Not Specified</option>
               <option>Mr.Aaron Larsen</option>
               <option>Dr.Asawin Sinsarp</option>
@@ -113,7 +113,7 @@ class SuggestPage extends React.Component{
           </FormGroup>
           <Label for="exampleSelect">Click for Submit Suggestion Form :</Label>
           <br></br>
-          <Button>Submit</Button>
+          <Button onClick={handleSubmit}>Submit</Button>
         </Form>
         </CardBody>
       </Card>
