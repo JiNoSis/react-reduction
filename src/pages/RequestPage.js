@@ -10,22 +10,57 @@ import {
   Input,
   Label
 } from 'reactstrap';
+import firebase from '../firebase';
 
+
+var requestRef = firebase.database().ref('Request');
+var std_id;
 var today = new Date();
 var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
 
-const FormPage = () => {
+
+const handleSubmit = (e) =>{
+  var doc = document.getElementById('selectDoc').value;
+  var num = document.getElementById('selectNum').value;
+  var cam = document.getElementById('selectCam').value;
+  var newRequestRef = requestRef.push();
+  newRequestRef.set({
+    std_id: '6000000001',
+    request_type: doc,
+    num_copy: num,
+    campus: cam
+  });
+}
+
+class FormPage extends React.Component{
+
+  componentDidMount() {
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.setState({
+          currentUser: user
+        });
+        std_id.setState(this.state.currentUser.email.slice(0,10));
+        console.log(std_id);
+      }
+    });
+  };
+
+
+
+  render(){
   return (
     <Page title="Request Forms" breadcrumbs={[{ name: 'request', active: true }]}>
       <Card>
         <CardHeader>Request Certificate</CardHeader>
         <CardBody>
-          <Form>
+          <Form id='request_form'>
             <Label>{date.toString()}</Label>
             <br></br>
             <FormGroup>
-              <Label for="exampleSelect">Step 1 : Select Type of Document</Label>
-              <Input type="select" name="selectDoc">
+              <Label>Step 1 : Select Type of Document</Label>
+              <Input type="select" name="selectDoc" id='selectDoc'>
                 <option>Academic Record (Transcript)</option>
                 <option>Bachelor-Rank (Current/English Version)-RS</option>
                 <option>Bachelor-Status (Current) - RS (Student Status For Bachelor/English Version)</option>
@@ -37,8 +72,8 @@ const FormPage = () => {
               </Input>
             </FormGroup>
             <FormGroup>
-              <Label for="exampleSelect">Step 2 : Select Number of Copy</Label>
-              <Input type="select" name="selectNum">
+              <Label>Step 2 : Select Number of Copy</Label>
+              <Input type="select" name="selectNum" id='selectNum'>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -47,20 +82,22 @@ const FormPage = () => {
               </Input>
             </FormGroup>
             <FormGroup>
-              <Label for="exampleSelect">Step 3 : Select Campus</Label>
-              <Input type="select" name="selectCampus">
+              <Label>Step 3 : Select Campus</Label>
+              <Input type="select" name="selectCampus" id='selectCam'>
                 <option>Rangsit Campus</option>
                 <option>Bangkadi Campus</option>
               </Input>
             </FormGroup>
             <Label for="exampleSelect">Step 4 : Click for Submit Request </Label>
             <br></br>
-            <Button>Submit</Button>
+            <Button onClick={handleSubmit}>Submit</Button>
           </Form>
         </CardBody>
       </Card>
     </Page>
   );
 };
+};
+
 
 export default FormPage;

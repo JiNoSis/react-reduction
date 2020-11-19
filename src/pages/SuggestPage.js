@@ -11,10 +11,24 @@ import {
   Label,
 } from 'reactstrap';
 
+import firebase from '../firebase';
+
+var requestRef = firebase.database().ref('Suggest');
 var today = new Date();
 var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
 
 const SuggestPage = () => {
+
+  const handleSubmit = (e) =>{
+    var textt = document.getElementById('selectText').value;
+    var proff = document.getElementById('selectProf').value;
+    var newRequestRef = requestRef.push();
+    newRequestRef.set({
+      std_id: '6000000001',
+      text: textt,
+      prof: proff
+    });
+  }
   return (
     <Page title="Suggestion Forms" breadcrumbs={[{ name: 'suggest', active: true }]}>
       <Card>
@@ -78,5 +92,4 @@ const SuggestPage = () => {
     </Page>
   );
 };
-
 export default SuggestPage;
